@@ -1,0 +1,141 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #202020;
+    color: #fff;
+}
+
+.container {
+    width: 80%;
+    margin: auto;
+    padding: 20px;
+}
+
+.header, nav {
+    text-align: center;
+    padding: 20px;
+}
+
+nav a {
+    margin: 0 10px;
+    color: #fff;
+    text-decoration: none;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+.social-links a {
+    margin: 0 10px;
+    color: #fff; /* This will make the icons white */
+    font-size: 2em; /* This will make the icons twice as big */
+    text-decoration: none; /* This will remove the underline from the icons */
+}
+
+.profile-picture {
+    width: 200px; /* Adjust this value as needed */
+    height: auto; /* This maintains the aspect ratio */
+}
+
+.about-text {
+    display: flex;
+    justify-content: center;
+    max-width: 500px; /* Make the text twice the width of the image */
+    text-align: justify;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    grid-gap: 20px;
+}
+
+.project-card {
+    border: 1px solid #fff;
+    padding: 10px;
+    text-align: center;
+}
+
+.project-image {
+    width: 100%; /* this will make the image width the same as its container */
+    height: 300px; /* adjust this as needed */
+    object-fit: cover; /* this will crop the image to fit its container */
+}
+
+.project-link {
+    display: inline-block;
+    padding: 12px 24px;
+    margin: 10px 0;
+    font-size: 16px;
+    color: #ffffff;
+    background-color: #2d2d2d;
+    border: none;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.project-link:hover {
+    background-color: #535353;
+}
+
+.contact-form {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #202020;
+    color: #fff;
+    border-radius: 5px;
+    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.2);
+    box-sizing: border-box; /* this ensures that the padding and border are included in the element's total width and height */
+}
+
+.contact-form h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.contact-form input[type="text"], .contact-form input[type="email"], .contact-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #333;
+    color: #fff;
+    box-sizing: border-box; /* add this line */
+}
+
+.contact-form textarea {
+    min-height: 100px;
+    resize: vertical;
+    box-sizing: border-box; /* add this line */
+}
+
+
+.contact-form button[type="submit"] {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007BFF;
+    color: #fff;
+    cursor: pointer;
+}
+
+.contact-form button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+#feedback-message {
+    margin-top: 20px;
+    font-size: 16px;
+    /* Additional styling as per your design */
+}

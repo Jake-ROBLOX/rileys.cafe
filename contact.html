@@ -1,0 +1,67 @@
+﻿<!DOCTYPE html>
+<html><head>
+    <meta charset="UTF-8">
+    <title>Contact Me</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="projects.html">Projects</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+    <div class="container contact-form">
+        <h2>Contact Me</h2>
+        <form action="https://formspree.io/f/mzdrvdrj" method="POST">
+  <label>
+    Your email:
+    <input type="email" name="email">
+  </label>
+  <label>
+    Your message:
+    <textarea name="message"></textarea>
+  </label>
+  <!-- your other form fields go here -->
+  <button type="submit">Send</button>
+</form>
+        <div id="feedback-message"></div>
+    </div>
+    <script>
+        document.getElementById('contact-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            var form = this;
+            var data = new FormData(form);
+            var feedbackMessage = document.getElementById('feedback-message');
+
+            fetch(form.action, {
+                method: form.method,
+                body: data,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            }).then(response => {
+                if (response.ok) {
+                    feedbackMessage.textContent = "Thanks for your submission!";
+                    feedbackMessage.style.color = 'green'; // Optional: Style Success Message
+                    form.reset();
+                } else {
+                    response.json().then(data => {
+                        if (Object.hasOwn(data, 'errors')) {
+                            feedbackMessage.textContent = data["errors"].map(error => error["message"]).join(", ");
+                        } else {
+                            feedbackMessage.textContent = "Oops! There was a problem submitting your form";
+                        }
+                        feedbackMessage.style.color = 'red'; // Optional: Style Error Message
+                    });
+                }
+            }).catch(error => {
+                feedbackMessage.textContent = "Oops! There was a problem submitting your form";
+                feedbackMessage.style.color = 'red'; // Optional: Style Error Message
+            });
+        });
+    </script>
+<script defer="" src="beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon="{&quot;version&quot;:&quot;2024.11.0&quot;,&quot;token&quot;:&quot;5c26edcac14c4a84910dca707a9a274c&quot;,&quot;r&quot;:1,&quot;server_timing&quot;:{&quot;name&quot;:{&quot;cfCacheStatus&quot;:true,&quot;cfEdge&quot;:true,&quot;cfExtPri&quot;:true,&quot;cfL4&quot;:true,&quot;cfOrigin&quot;:true,&quot;cfSpeedBrain&quot;:true},&quot;location_startswith&quot;:null}}" crossorigin="anonymous"></script>
+
+
+</body></html>
